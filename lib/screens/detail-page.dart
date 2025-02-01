@@ -89,23 +89,23 @@ class _DetailPageState extends State<DetailPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundColor, // Fondo dinámico basado en el tipo de Pokémon
+      backgroundColor: backgroundColor, 
       appBar: AppBar(
         title: Text(
           pokemonDetails["name"]?.toString().toUpperCase() ?? "Detalles del Pokémon",
-          style: TextStyle(
-            color: Colors.black, // Texto en negro
+          style: const TextStyle(
+            color: Colors.black, 
             fontWeight: FontWeight.bold,
           ),
         ),
-        backgroundColor: Colors.white.withOpacity(0.5), // AppBar semi-transparente
+        backgroundColor: Colors.white.withOpacity(0.5), 
         elevation: 0,
-        iconTheme: IconThemeData(color: Colors.black), // Ícono de retroceso negro
+        iconTheme: IconThemeData(color: Colors.black), 
       ),
       body: isLoading
-          ? Center(
+          ? const Center(
               child: CircularProgressIndicator(
-                color: Colors.black, // Indicador de carga en negro
+                color: Colors.black, 
               ),
             )
           : SingleChildScrollView(
@@ -114,9 +114,8 @@ class _DetailPageState extends State<DetailPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    // Imagen del Pokémon (más grande y centrada)
                     Container(
-                      padding: EdgeInsets.all(16),
+                      padding: const EdgeInsets.all(16),
                       decoration: BoxDecoration(
                         color: Colors.white.withOpacity(0.2),
                         borderRadius: BorderRadius.circular(20),
@@ -124,9 +123,9 @@ class _DetailPageState extends State<DetailPage> {
                       child: Center(
                         child: Image.network(
                           pokemonDetails["sprites"]["front_default"],
-                          width: 300, // Imagen más grande
-                          height: 300, // Imagen más grande
-                          fit: BoxFit.cover, // Ajusta la imagen al contenedor
+                          width: 300, 
+                          height: 300,
+                          fit: BoxFit.cover, 
                         ),
                       ),
                     ),
@@ -134,10 +133,10 @@ class _DetailPageState extends State<DetailPage> {
                     // Nombre del Pokémon
                     Text(
                       pokemonDetails["name"]?.toString().toUpperCase() ?? "",
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 28,
                         fontWeight: FontWeight.bold,
-                        color: Colors.black, // Texto en negro
+                        color: Colors.black, 
                       ),
                     ),
                     SizedBox(height: 10),
@@ -148,7 +147,7 @@ class _DetailPageState extends State<DetailPage> {
                         return Chip(
                           label: Text(
                             type["type"]["name"].toString().toUpperCase(),
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.black, // Texto en negro
                               fontWeight: FontWeight.bold,
                             ),
@@ -173,7 +172,7 @@ class _DetailPageState extends State<DetailPage> {
                         ],
                       ),
                     ),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     // Estadísticas del Pokémon
                     Container(
                       padding: EdgeInsets.all(16),
@@ -184,7 +183,7 @@ class _DetailPageState extends State<DetailPage> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
+                          const Text(
                             "Estadísticas",
                             style: TextStyle(
                               fontSize: 20,
@@ -192,7 +191,7 @@ class _DetailPageState extends State<DetailPage> {
                               color: Colors.black, // Texto en negro
                             ),
                           ),
-                          SizedBox(height: 10),
+                          const SizedBox(height: 10),
                           ...pokemonDetails["stats"].map<Widget>((stat) {
                             return _buildStatRow(
                               stat["stat"]["name"].toString().toUpperCase(),
@@ -218,7 +217,7 @@ class _DetailPageState extends State<DetailPage> {
         children: [
           Text(
             label,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 16,
               color: Colors.black, // Texto en negro
               fontWeight: FontWeight.bold,
@@ -226,7 +225,7 @@ class _DetailPageState extends State<DetailPage> {
           ),
           Text(
             value,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 16,
               color: Colors.black, // Texto en negro
             ),
@@ -246,7 +245,7 @@ class _DetailPageState extends State<DetailPage> {
             flex: 2,
             child: Text(
               label,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 16,
                 color: Colors.black, // Texto en negro
                 fontWeight: FontWeight.bold,
@@ -261,10 +260,10 @@ class _DetailPageState extends State<DetailPage> {
               valueColor: AlwaysStoppedAnimation<Color>(Colors.black), // Barra de progreso en negro
             ),
           ),
-          SizedBox(width: 10),
+          const SizedBox(width: 10),
           Text(
             "$value",
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 16,
               color: Colors.black, // Texto en negro
             ),
